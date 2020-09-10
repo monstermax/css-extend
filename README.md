@@ -2,6 +2,10 @@
 extend css classes with other classes
 
 
+## Demo
+demo on (http://vipe.re/css_extend/demo.html)
+
+
 ## This CSS code
 
 ```css
