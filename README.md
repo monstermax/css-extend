@@ -56,7 +56,7 @@ h4 {
 }
 
 h5 {
-  <b>color: yellow;</b>
+  color: yellow;
   background-color: darkgrey;
   font-family: arial;
 }
