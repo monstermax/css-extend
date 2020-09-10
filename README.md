@@ -1,9 +1,12 @@
 # css-extend
-extend css classes with other classes
+
+Allow you to extend css classes with other classes.
+  
+Not a CSS preprocessor but a CSS *post*processor.
 
 
 ## Demo
-demo on (http://vipe.re/css_extend/demo.html)
+demo on http://vipe.re/css_extend/demo.html
 
 
 ## This CSS code
