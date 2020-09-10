@@ -8,7 +8,7 @@ extend css classes with other classes
 <style>
 h3 {
   color: green;
-  content: "@extend .upper-case .text-arial";
+  content: "@extend .upper-case .text-arial";   /* the 'h3' class will inherit the .upper-case class and the .text-arial class */
 }
 
 h4 {

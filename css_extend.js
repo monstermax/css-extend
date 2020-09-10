@@ -22,6 +22,7 @@ function applyCssExtend() {
 
 		if (content_action == '@extend') {
 
+			// for each parent css class
 			for (var k=0; k<content_params.length; k++) {
 				var content_param = content_params[k];
 				var rule_parent = all_rules[content_param];
