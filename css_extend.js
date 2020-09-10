@@ -17,12 +17,12 @@ function applyCssExtend() {
 			extend_classes = extend_classes.substr(1, extend_classes.length-2)
 		}
 
-		var content_params = extend_classes.split(' ');
+		var extend_params = extend_classes.split(' ');
 
 		// for each parent css class
-		for (var k=0; k<content_params.length; k++) {
-			var content_param = content_params[k];
-			var rule_parent = all_rules[content_param];
+		for (var k=0; k<extend_params.length; k++) {
+			var extend_param = extend_params[k];
+			var rule_parent = all_rules[extend_param];
 
 			if (rule_parent) {
 
@@ -41,7 +41,7 @@ function applyCssExtend() {
 					}
 					
 					if (style_prop) {
-						//console.log("set " + style_prop_name + " from " + content_param + " to " + css_rule.selectorText);
+						//console.log("set " + style_prop_name + " from " + extend_param + " to " + css_rule.selectorText);
 						css_rule.style[style_prop_name] = rule_parent.style[style_prop_name];
 					}
 				}
@@ -55,15 +55,15 @@ function applyCssExtend() {
 	function _applyCssExtend() {
 		var rules_to_extend = [];
 
-		// 1) build css classes list, which have a "content" property contening "@extend" method
+		// 1) build css classes list, which have a "--extends" property
 
-		// for all stylesheet / css tags (link & style tags)
-		for (a in document.styleSheets) {
-			var stylesheet = document.styleSheets[a];
+		// for all stylesheet / css tags (link & style tags) ...
+		for (p in document.styleSheets) {
+			var stylesheet = document.styleSheets[p];
 
-			// for each css class of the stylesheet
-			for (b in stylesheet.cssRules) {
-				var cssRule = stylesheet.cssRules[b];
+			// for each css class/rule of the stylesheet ...
+			for (q in stylesheet.cssRules) {
+				var cssRule = stylesheet.cssRules[q];
 
 				all_rules[cssRule.selectorText] = cssRule;
 
@@ -73,10 +73,9 @@ function applyCssExtend() {
 			}
 		}
 
-		// 2) for all css classes, extend it
-		for (c in rules_to_extend) {
-			var rule_to_extend = rules_to_extend[c];
-			extendRule(rule_to_extend);
+		// 2) for all css classes/rules to extend ...
+		for (p in rules_to_extend) {
+			extendRule(rules_to_extend[p]);
 		}
 	}
 
