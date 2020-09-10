@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>CSS Extend (using javascript)</title>
+
+    <style type="text/css">
+    pre {
+      border:solid 1px #708090;
+      padding:10px;
+    }
+
+
+    h3 {
+      color: green;
+      content: "@extend .upper-case .text-arial";
+    }
+
+    h4 {
+      content: "@extend .bg-dark .text-red .text-arial";
+    }
+
+    h5 {
+      content: "@extend h4";
+      color: yellow;
+    }
+
+
+    .text-arial {
+      font-family: arial;
+    }
+
+    .upper-case {
+      text-transform: uppercase;
+    }
+
+    .text-red {
+      color: red;
+    }
+
+    .bg-dark {
+      background-color: darkgrey;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>CSS Extend &nbsp; <small>- &nbsp; extend css classes with other classes</small></h1>
+
+    <p>
+      CSS Extend allow to extend css classes with other classes.
+    </p>
+
+    <hr />
+
+    <pre>
+    &lt;style&gt;
+    h3 {
+      color: green;
+      <b>content: "@extend .upper-case .text-arial";</b>
+    }
+
+    h4 {
+      <b>content: "@extend .bg-dark .text-red .text-arial";</b>
+    }
+
+    h5 {
+      <b>content: "@extend h4";</b>
+      color: yellow;
+    }
+
+
+    .text-arial {
+      font-family: arial;
+    }
+
+    .upper-case {
+      text-transform: uppercase;
+    }
+
+    .text-red {
+      color: red;
+    }
+
+    .bg-dark {
+      background-color: darkgrey;
+    }
+    &lt;/style&gt;
+    </pre>
+
+    <h3>h3 (arial & uppercase)</h3>
+    <h4>h4 (dark background & red text & arial)</h4>
+    <h5>h5 (all 'h4' class properties but yellow color, and the original h5 fontsize)</h5>
+
+    <hr />
+
+    <center><h2>IS TRANSFORMED TO</h2></center>
+
+    <pre>
+    &lt;style&gt;
+    h3 {
+      color: green;
+      <b>text-transform: uppercase;</b>
+      <b>font-family: arial;</b>
+    }
+
+    h4 {
+      <b>background-color: darkgrey;</b>
+      <b>color: red;</b>
+      <b>font-family: arial;</b>
+    }
+
+    h5 {
+      <b>color: yellow;</b>
+      <b>background-color: darkgrey;</b>
+      <b>font-family: arial;</b>
+    }
+
+
+    .text-arial {
+      font-family: arial;
+    }
+
+    .upper-case {
+      text-transform: uppercase;
+    }
+
+    .text-red {
+      color: red;
+    }
+
+    .bg-dark {
+      background-color: darkgrey;
+    }
+    &lt;/style&gt;
+    </pre>
+
+
+    <script type="text/javascript" src="css_extend.js"></script>
+
+    <script type="text/javascript">
+    applyCssExtend();
+    </script>
+
+  </body>
+</html>
