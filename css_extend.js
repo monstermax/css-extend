@@ -6,22 +6,22 @@ function applyCssExtend() {
 
 
 	function extendRule(css_rule) {
-		var extend_classes = css_rule.style.getPropertyValue('--extends').trim();
+		var extend_classes_str = css_rule.style.getPropertyValue('--extends').trim();
 
-		if (! extend_classes) {
+		if (! extend_classes_str) {
 			// if rule doesn't have a '--extends' property, we leave directly
 			return;
 		}
 
-		if (["'", '"'].indexOf(extend_classes.substr(0, 1)) !== -1) {
-			extend_classes = extend_classes.substr(1, extend_classes.length-2).trim();
+		if (["'", '"'].indexOf(extend_classes_str.substr(0, 1)) !== -1) {
+			extend_classes_str = extend_classes_str.substr(1, extend_classes_str.length-2).trim();
 		}
 
-		var extend_params = extend_classes.split(' ');
+		var extend_classes = extend_classes_str.split(' ');
 
 		// for each parent css class
-		for (var k=0; k<extend_params.length; k++) {
-			var extend_param = extend_params[k];
+		for (var k=0; k<extend_classes.length; k++) {
+			var extend_param = extend_classes[k];
 			var rule_parent = all_rules[extend_param];
 
 			if (rule_parent) {
