@@ -21,8 +21,8 @@ function applyCssExtend() {
 
 		// for each parent css class
 		for (var k=0; k<extend_classes.length; k++) {
-			var extend_param = extend_classes[k];
-			var rule_parent = all_rules[extend_param];
+			var extend_class = extend_classes[k];
+			var rule_parent = all_rules[extend_class];
 
 			if (rule_parent) {
 
@@ -41,7 +41,7 @@ function applyCssExtend() {
 					}
 					
 					if (style_prop) {
-						//console.log("set " + style_prop_name + " from " + extend_param + " to " + css_rule.selectorText);
+						//console.log("set " + style_prop_name + " from " + extend_class + " to " + css_rule.selectorText);
 						css_rule.style[style_prop_name] = rule_parent.style[style_prop_name];
 					}
 				}
