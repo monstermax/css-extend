@@ -6,53 +6,48 @@ function applyCssExtend() {
 
 
 	function extendRule(css_rule) {
-		var style_content = css_rule.style['content'];
+		var extend_classes = css_rule.style.getPropertyValue('--extends').trim();
 
-		if (! style_content) {
-			// if rule doesn't have a 'content' property, we leave directly
+		if (! extend_classes) {
+			// if rule doesn't have a '--extends' property, we leave directly
 			return;
 		}
 
-		if (["'", '"'].indexOf(style_content.substr(0, 1)) !== -1) {
-			style_content = style_content.substr(1, style_content.length-2)
+		if (["'", '"'].indexOf(extend_classes.substr(0, 1)) !== -1) {
+			extend_classes = extend_classes.substr(1, extend_classes.length-2)
 		}
 
-		var content_params = style_content.split(' ');
-		var content_action = content_params.shift();
+		var content_params = extend_classes.split(' ');
 
-		if (content_action == '@extend') {
+		// for each parent css class
+		for (var k=0; k<content_params.length; k++) {
+			var content_param = content_params[k];
+			var rule_parent = all_rules[content_param];
 
-			// for each parent css class
-			for (var k=0; k<content_params.length; k++) {
-				var content_param = content_params[k];
-				var rule_parent = all_rules[content_param];
+			if (rule_parent) {
 
-				if (rule_parent) {
-
-					// if parent rule has a 'content' property, we process this class first
-					if (rule_parent.style['content']) {
-						extendRule(rule_parent);
-					}
-
-					// for each css property in the rule
-					for (var i=0; i<rule_parent.style.length; i++) {
-						var style_prop_name = rule_parent.style[i];
-						var style_prop = rule_parent.style[style_prop_name];
-
-						if (css_rule.style[style_prop_name] != '' && ! overwrite_current_rule_params) {
-							continue;
-						}
-						
-						if (style_prop) {
-							//console.log("set " + style_prop_name + " from " + content_param + " to " + css_rule.selectorText);
-							css_rule.style[style_prop_name] = rule_parent.style[style_prop_name];
-						}
-					}
+				// if parent rule has a '--extends' property, we process this class first
+				if (rule_parent.style.getPropertyValue('--extends')) {
+					extendRule(rule_parent);
 				}
 
+				// for each css property in the rule
+				for (var i=0; i<rule_parent.style.length; i++) {
+					var style_prop_name = rule_parent.style[i];
+					var style_prop = rule_parent.style[style_prop_name];
+
+					if (css_rule.style[style_prop_name] != '' && ! overwrite_current_rule_params) {
+						continue;
+					}
+					
+					if (style_prop) {
+						//console.log("set " + style_prop_name + " from " + content_param + " to " + css_rule.selectorText);
+						css_rule.style[style_prop_name] = rule_parent.style[style_prop_name];
+					}
+				}
 			}
 
-			css_rule.style['content'] = null;
+			css_rule.style['--extends'] = null;
 		}
 	}
 
@@ -72,7 +67,7 @@ function applyCssExtend() {
 
 				all_rules[cssRule.selectorText] = cssRule;
 
-				if (cssRule.style && cssRule.style.content.indexOf('@extend') !== -1) {
+				if (cssRule.style && cssRule.style.getPropertyValue('--extends')) {
 					rules_to_extend.push(cssRule);
 				}
 			}

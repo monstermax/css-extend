@@ -14,15 +14,15 @@
 
     h3 {
       color: green;
-      content: "@extend .upper-case .text-arial";
+      --extends: .upper-case .text-arial;
     }
 
     h4 {
-      content: "@extend .bg-dark .text-red .text-arial";
+      --extends: .bg-dark .text-red .text-arial;
     }
 
     h5 {
-      content: "@extend h4";
+      --extends: h4;
       color: yellow;
     }
 
@@ -57,15 +57,16 @@
     &lt;style&gt;
     h3 {
       color: green;
-      <b>content: "@extend .upper-case .text-arial";</b>
+      <b>--extends: .upper-case .text-arial;</b>
+        /* the 'h3' class will inherit the .upper-case class and the .text-arial class */
     }
 
     h4 {
-      <b>content: "@extend .bg-dark .text-red .text-arial";</b>
+      <b>--extends: .bg-dark .text-red .text-arial;</b>
     }
 
     h5 {
-      <b>content: "@extend h4";</b>
+      <b>--extends: h4;</b>
       color: yellow;
     }
 

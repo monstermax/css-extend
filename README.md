@@ -15,15 +15,16 @@ demo on http://vipe.re/css_extend/demo.html
 <style>
 h3 {
   color: green;
-  content: "@extend .upper-case .text-arial";   /* the 'h3' class will inherit the .upper-case class and the .text-arial class */
+  --extends: .upper-case .text-arial;
+  	/* the 'h3' class will inherit the ".upper-case" class and the ".text-arial" class */
 }
 
 h4 {
-  content: "@extend .bg-dark .text-red .text-arial";
+  --extends: .bg-dark .text-red .text-arial;
 }
 
 h5 {
-  content: "@extend h4";
+  --extends: h4;
   color: yellow;
 }
 
