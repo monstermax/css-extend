@@ -85,11 +85,9 @@ h5 {
 ## Using this javascript code
 
 ```javascript
-<pre code="javascript">
-&lt;script type="text/javascript" src="css_extend.js"&gt;&lt;/script&gt;
+<script type="text/javascript" src="css_extend.js"></script>
 
-&lt;script type="text/javascript"&gt;
+<script type="text/javascript">
 applyCssExtend();
-&lt;/script&gt;
-</pre>
+</script>
 ```
