@@ -8,15 +8,15 @@ extend css classes with other classes
 <style>
 h3 {
   color: green;
-  <b>content: "@extend .upper-case .text-arial";</b>
+  *content: "@extend .upper-case .text-arial";*
 }
 
 h4 {
-  <b>content: "@extend .bg-dark .text-red .text-arial";</b>
+  *content: "@extend .bg-dark .text-red .text-arial";*
 }
 
 h5 {
-  <b>content: "@extend h4";</b>
+  *content: "@extend h4";*
   color: yellow;
 }
 
@@ -45,20 +45,20 @@ h5 {
 <style>
 h3 {
   color: green;
-  <b>text-transform: uppercase;</b>
-  <b>font-family: arial;</b>
+  *text-transform: uppercase;*
+  *font-family: arial;*
 }
 
 h4 {
-  <b>background-color: darkgrey;</b>
-  <b>color: red;</b>
-  <b>font-family: arial;</b>
+  *background-color: darkgrey;*
+  *color: red;*
+  *font-family: arial;*
 }
 
 h5 {
   <b>color: yellow;</b>
-  <b>background-color: darkgrey;</b>
-  <b>font-family: arial;</b>
+  *background-color: darkgrey;*
+  *font-family: arial;*
 }
 
 
