@@ -4,8 +4,8 @@ extend css classes with other classes
 
 ## This CSS code
 
-<pre>
-&lt;style&gt;
+```css
+<style>
 h3 {
   color: green;
   <b>content: "@extend .upper-case .text-arial";</b>
@@ -36,14 +36,13 @@ h5 {
 .bg-dark {
   background-color: darkgrey;
 }
-&lt;/style&gt;
-</pre>
+</style>
+```
 
+## Is tranformed to this
 
-## Is tranformed to 
-
-<pre>
-&lt;style&gt;
+```css
+<style>
 h3 {
   color: green;
   <b>text-transform: uppercase;</b>
@@ -78,8 +77,8 @@ h5 {
 .bg-dark {
   background-color: darkgrey;
 }
-&lt;/style&gt;
-</pre>
+</style>
+```
 
 
 ## Using this javascript code
