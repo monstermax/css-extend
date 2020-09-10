@@ -80,3 +80,16 @@ h5 {
 }
 &lt;/style&gt;
 </pre>
+
+
+## Using this javascript code
+
+```javascript
+<pre code="javascript">
+&lt;script type="text/javascript" src="css_extend.js"&gt;&lt;/script&gt;
+
+&lt;script type="text/javascript"&gt;
+applyCssExtend();
+&lt;/script&gt;
+</pre>
+```
