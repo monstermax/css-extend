@@ -14,7 +14,7 @@ function applyCssExtend() {
 		}
 
 		if (["'", '"'].indexOf(extend_classes.substr(0, 1)) !== -1) {
-			extend_classes = extend_classes.substr(1, extend_classes.length-2)
+			extend_classes = extend_classes.substr(1, extend_classes.length-2).trim();
 		}
 
 		var extend_params = extend_classes.split(' ');
