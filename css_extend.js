@@ -1,6 +1,6 @@
 
 
-function applyCssExtend() {
+(function applyCssExtend() {
 	var all_rules = {};
 	var overwrite_current_rule_params = false;
 
@@ -81,5 +81,6 @@ function applyCssExtend() {
 
 
 	_applyCssExtend();
-}
+	
+})();
 

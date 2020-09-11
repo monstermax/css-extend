@@ -93,9 +93,5 @@ h5 {
 
 ```javascript
 <script type="text/javascript" src="css_extend.js"></script>
-
-<script type="text/javascript">
-applyCssExtend();
-</script>
 ```
 
